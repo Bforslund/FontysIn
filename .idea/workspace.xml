@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70c26843-b538-4afc-9bd1-65c4301bfe0b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iXeEGYCVvgd0O83FCXpMp162tG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FontysIN" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70c26843-b538-4afc-9bd1-65c4301bfe0b" name="Default Changelist" comment="" />
+      <created>1602058252710</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602058252710</updated>
+      <workItem from="1602058255077" duration="122000" />
+      <workItem from="1602505994160" duration="15000" />
+      <workItem from="1602506019764" duration="19000" />
+      <workItem from="1602695484369" duration="21000" />
+      <workItem from="1602769336486" duration="29000" />
+      <workItem from="1603804350235" duration="152000" />
+      <workItem from="1603804520316" duration="56000" />
+      <workItem from="1605226081620" duration="256000" />
+      <workItem from="1605226378427" duration="20000" />
+      <workItem from="1605727878475" duration="769000" />
+      <workItem from="1606260117505" duration="19000" />
+      <workItem from="1606380680068" duration="155000" />
+      <workItem from="1606422459912" duration="607000" />
+      <workItem from="1606430800326" duration="1245000" />
+      <workItem from="1607190953438" duration="664000" />
+      <workItem from="1607352824348" duration="1326000" />
+      <workItem from="1608238213664" duration="685000" />
+      <workItem from="1611065507534" duration="29000" />
+      <workItem from="1611076915394" duration="165000" />
+      <workItem from="1611156152836" duration="480000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="686" y="211" key="FileChooserDialogImpl" timestamp="1611156631284">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="686" y="211" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611156631284" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1605226159818">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605226159818" />
+  </component>
+</project>
