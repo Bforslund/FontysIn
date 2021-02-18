@@ -1,0 +1,98 @@
+<!--Navbar-->
+<mdb-navbar class="customNav" SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">FontysIN</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" href="/" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <div *ngIf="profiles?.length> 0; else noProfile">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light"
+        (click)="submit()"
+        mdbWavesEffect>Profile</a>
+      </li>
+      </div>
+      <ng-template #noProfile>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light"
+          (click) = "openDialogProfile()"
+          mdbWavesEffect>Profile</a>
+        </li>
+      </ng-template>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link 
+            waves-light" 
+            href="#" 
+            mdbWavesEffect
+            [routerLink]="['/messages']">Messages</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light"
+           [routerLink]="['/connections']"
+           mdbWavesEffect>
+          Connections
+        </a>
+      </li>
+
+
+
+    </ul>
+    <!-- Links -->
+
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          Account<span class="caret"></span>
+        </a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect href="settings">Settings</a>
+        
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/"(click)="logout()">Log out</a>
+        </div>
+      </li>
+
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form my-0">
+          <input list="browsers" id="search-text" [(ngModel)]="searchText" name="searchText" class="form-control mr-sm-2" 
+          type="search" placeholder="Search" autofocus>
+
+          <datalist id="browsers">
+          
+            <div *ngFor="let user of users | search: searchText">
+              <option> 
+                <td class="font-italic"> 
+                  <div [routerLink]="['/users', user.id, 'profiles', user.profileId]">
+                    {{user.firstName}}  {{user.lastName}}
+                  </div>
+                </td>
+            </div>
+            
+          </datalist>
+
+        </div>
+
+      </form>
+
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="example-button-container">
+          <button mat-mini-fab aria-label="Example icon button with a filter alt icon" [routerLink]="['/users', 'filter']">
+            <mat-icon>filter_alt</mat-icon>
+          </button>
+        </div>
+      </form>
+      
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+

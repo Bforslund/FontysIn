@@ -1,0 +1,91 @@
+<div class="container border my-5" appMaterialElevation [defaultElevation]="defaultElevation" [raisedElevation]="raisedElevation">
+	<mat-tab-group animationDuration="1000ms">
+		<mat-tab label="My Connections">
+  
+			<h1 class="heading">My Connections ({{ contacts?.length }})</h1>
+
+			<form class="example-form">
+				<mat-form-field class="example-full-width">
+				  <mat-label>Search</mat-label>
+				  <input type="text" matInput placeholder="Connection's Name"
+				  id="search-text" 
+				  aria-describedby="search-text" 
+				  [(ngModel)]="searchText" 
+				  name="searchText"
+				  autofocus>
+				</mat-form-field>
+			  </form>
+		
+			<hr class="headingLine">
+			
+			<div *ngFor="let contact of contacts | appFilter: searchText" class="connection">
+				<img class="item" 
+					src="{{userId == contact.friend.id ? contact.user.image: contact.friend.image}}"
+					onerror="this.src='assets/placeholder.png'">
+				<div class="item connectionDesc" 
+					[routerLink]="['/users', userId == contact.friend.id ? contact.user.id: contact.friend.id, 'profiles', userId == contact.friend.id ? contact.user.profileId: contact.friend.profileId]">
+					  <h3 class="connectionName">
+						{{ userId == contact.friend.id ? contact.user.firstName + ' ' + contact.user.lastName: contact.friend.firstName + ' ' + contact.friend.lastName}} 
+					  </h3>
+
+					<hr class="dividerConnections">
+
+				</div>
+				<mat-icon 
+				  aria-hidden="false" 
+				  aria-label="Example remove_circle_outline icon" 
+				  (click)="openDialog(contact)"
+				  matTooltip="Delete connection" 
+				  [matTooltipPosition]="position.value">
+				  remove_circle_outline
+				</mat-icon>
+		
+		
+			</div>
+		  
+		</mat-tab>
+		<mat-tab>
+		  <ng-template mat-tab-label>
+			<span [matBadge]="requests?.length" matBadgeOverlap="false" matBadgeSize="small">Requests</span>
+
+		  </ng-template>
+
+			<h1 class="heading">Requests ({{ requests?.length }})</h1>
+			<hr class="headingLine">
+
+			<div *ngFor="let request of requests, let i = index" class="connection">
+				<img class="item" 
+					src="{{userId == request.friend.id ? request.user.image: request.friend.image}}"
+					onerror="this.src='assets/placeholder.png'">
+				<div class="item connectionDesc">
+				  <h3 class="connectionName"
+					  [routerLink]="['/users', userId == request.friend.id ? request.user.id: request.friend.id, 'profiles', userId == request.friend.id ? request.user.profileId: request.friend.profileId]">
+					{{ userId == request.friend.id ? request.user.firstName + ' ' + request.user.lastName: request.friend.firstName + ' ' + request.friend.lastName}} 
+				  </h3>
+				  <h4>Student at Fontys of Applied Sciences</h4>
+					<hr class="dividerConnections">
+		
+				</div>
+				<!-- Accept -->
+				<mat-icon 
+				  aria-hidden="false" 
+				  aria-label="Example add_circle_outline icon" 
+				  (click)="accept(requests[i])" 
+				  matTooltip="Accept the request" 
+				  [matTooltipPosition]="position.value">
+				  add_circle_outline
+				</mat-icon>
+				<!-- Reject -->
+				<mat-icon 
+				  aria-hidden="false" 
+				  aria-label="Example cancel icon" 
+				  (click)="reject(requests[i])" 
+				  matTooltip="Reject the request" 
+				  [matTooltipPosition]="position.value">
+				  cancel
+				</mat-icon>
+		
+			</div>
+		</mat-tab>
+	  </mat-tab-group>
+</div>

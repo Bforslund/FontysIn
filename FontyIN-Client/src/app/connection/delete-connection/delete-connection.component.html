@@ -1,0 +1,8 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<div id="question" mat-dialog-content>
+  <p>Are you sure you want to delete {{ loggedInUser == data.connection.user.id? data.connection.friend.firstName + ' ' +  data.connection.friend.lastName: data.connection.user.firstName + ' ' +  data.connection.user.lastName}}?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button cdkFocusInitial (click)="delete()">Yes</button>
+    <button mat-raised-button (click)="onNoClick()">No</button>
+</div>

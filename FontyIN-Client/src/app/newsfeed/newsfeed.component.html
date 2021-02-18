@@ -1,0 +1,56 @@
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+  
+    <div id="creatPostBlock">
+        <form name="form" [formGroup]="form" (ngSubmit)="form.valid">
+            <div class="form-group">
+                
+                <textarea [(ngModel)]="content" placeholder="Your awesome post..." id="newPostText" formControlName="postText" [ngClass]="{'is-invalid':form.get('postText').touched && form.get('postText').invalid}" required ></textarea> <br />
+       
+                <div class="invalid-feedback">
+                    <div>You need to write something first</div>
+                </div>
+            </div>
+            <button (click)="createPost()" class="postBtn" [disabled]="!form.valid">Post</button>
+            
+        </form>
+        
+
+        <form [formGroup]="uploadForm" >
+            
+          
+            <div>
+                <input style="display: none;" type="file" name="profile" (change)="onFileSelect($event)" #selectPicture />
+            </div>
+            <div class="buttons">
+                <button class="uploadBtn" type="button" rounded="true" (click)="selectPicture.click()"></button>
+                
+            </div>
+            <br><br>
+            <div style="text-align: center;">
+                <div *ngIf="lenImg()"> <a style="float: right;" (click)="closeImg()">x</a></div>
+            <img src="{{postUrl}}" id="post-image-select">
+            
+            </div>
+            
+        </form>
+        
+        
+        <br />
+        <br />
+    </div>
+
+    <hr />
+    <br />
+    <br />
+    <br />
+</div>
+
+<div class="container">
+    <div *ngFor="let p of allposts ">
+        <app-post [id]="p.id" [post]="p"></app-post>
+    </div>
+</div>

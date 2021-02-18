@@ -1,0 +1,65 @@
+
+<div class="container h-100 d-flex justify-content-center">
+<form (ngSubmit)="updateExperience()" #ExperienceForm="ngForm">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-right">Edit your Experience</h2>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12"><label class="labels">Company</label>
+            <input type="text" class="form-control" id="company"
+            required
+            [(ngModel)]="experience.company" name="company"
+            #company="ngModel">
+        </div>
+        <div class="col-md-12"><label class="labels">Employment type</label>
+            <select id="employmentType" name="employmentType" [(ngModel)]="experience.employmentType"
+            class="form-control">
+      <option *ngFor="let types of typeOfEmployment" [value]="types.type">
+        {{types.type}}
+      </option>
+    </select>
+
+
+    
+        </div>
+        <div class="col-md-12"><label class="labels">Location</label>
+            <input type="text" class="form-control" id="location"
+        required
+        [(ngModel)]="experience.location" name="location"
+        #location="ngModel">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12"><label class="labels">Start year</label>
+            <select id="startDateExperience" name="startDateExperience" [(ngModel)]="experience.startDateExperience"
+            class="form-control">
+            <option *ngFor="let y of years" [value]="y.year">
+            {{y.year}}
+            </option>
+            </select>
+        </div>
+        <div class="col-md-12"><label class="labels">End year</label>
+            <select id="endDateExperience" name="endDateExperience" [(ngModel)]="experience.endDateExperience"
+            class="form-control">
+            <option *ngFor="let y of years" [value]="y.year">
+            {{y.year}}
+            </option>
+            </select>
+        </div>
+        <div class="col-md-12"><label class="labels">Title</label>
+            <input type="text" class="form-control" id="title"
+            required
+            [(ngModel)]="experience.title" name="title"
+            #title="ngModel">
+        </div>
+        <div class="col-md-12"><label class="labels">Description</label>
+            <input type="text" class="form-control" id="descriptionExperience"
+        required
+        [(ngModel)]="experience.descriptionExperience" name="descriptionExperience"
+        #descriptionExperience="ngModel">
+        </div>
+    </div>
+    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit"  [disabled]="!ExperienceForm.valid">Save</button></div>
+    
+</form>
+</div>

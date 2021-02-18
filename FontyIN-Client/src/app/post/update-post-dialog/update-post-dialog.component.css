@@ -1,0 +1,91 @@
+.post-block {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+}
+.uploadBtn{
+    height: 36px;
+    width: 36px;
+    background-color: white;
+    background-image: url("camera.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+    border:none;
+    transition-duration: 0.4s;
+}
+.p-date {
+    float:right;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+  }
+
+#newPostText{
+    min-width: 500px;
+    max-width: 700px;
+    min-height: 100px;
+    border-radius: 4px;
+}
+#creatPostBlock{
+    width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.postBtn{
+    height: 37px;
+    width: 125px;
+    background-color: #5aa6e8;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.postBtn:hover{
+    background-color: #78bdfa;
+}
+.deleteBtn{
+    float:right;
+    border:none;
+    background-color: #f5f5f5;
+    font-size: 13px;
+    transition-duration: 0.3s;
+}
+.deleteBtn:hover{
+    color:#663366 ;
+}
+
+.update-block{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.closeBtn{
+    height: 37px;
+    width: 125px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition-duration: 0.4s;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.post-img {
+    width: 30%;
+    max-width: 500px;
+    
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}

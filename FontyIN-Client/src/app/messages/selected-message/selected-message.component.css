@@ -1,0 +1,94 @@
+/* Scroll */
+.scroll-viewport {
+    height: 49vh;
+	width: 100%;
+    margin-bottom: 7%;
+    overflow-y: scroll;
+}
+
+
+/* Chat container */
+.chat-container {
+	padding-right: 3%;
+}
+
+/* firend name */
+.friend-name {
+	display: inline-block;
+	font-size: 1.9em;
+    font-weight: 580;
+    color: #252525;
+}
+
+/* friends's image */
+.firend-img {
+	width: 90px;
+    margin-right: 4%;
+    border-radius: 50%;
+}
+
+
+/* Message container */
+.message {
+    margin: 4% auto;
+}
+
+/* line between messages */
+.conversation-divider {
+    width: 80%;
+    color: gray;
+    margin: auto 10%;
+}
+
+/* sender's name */
+.sender {
+	font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* time of message */
+.sender > .time {
+	float: right;
+    font-size: 0.8em;
+}
+
+/* message content */
+.message-content {
+	margin-top: 2%;
+    line-height: 1.7em;
+}
+
+/* textarea message */
+.full-width-field {
+   width: 100%;
+}
+
+/* send button */
+#send-message {
+	float: right;
+}
+
+
+/* Tooltip */
+::ng-deep .mat-tooltip {
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 1000px) {
+	/* friend's image */
+	img {
+    	width: 71px;
+	    height: 78px;
+	}
+
+}
+
+/* small screen */
+@media screen and (max-width: 770px) {
+	/* friend's image */
+	img {
+		width: 80px;
+		height: 100px;
+		margin-right: 4%;
+	}
+}

@@ -1,0 +1,59 @@
+<div class="col-sm">
+    <mat-card class="found-card">
+
+      <form class="example-form float-right">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <input type="text" matInput placeholder="Search for new contact"
+          id="search-text" 
+          aria-describedby="search-text" 
+          name="searchText"
+          [(ngModel)]="searchText" 
+          autofocus>
+        </mat-form-field>
+
+        <button class="float-right" mat-icon-button ria-label="" (click)="getUsersByFirstNameChars()">
+          <mat-icon>search</mat-icon>
+        </button>
+
+      </form>
+
+      <mat-card-header>
+          <br>
+          <br>
+      </mat-card-header>
+
+
+        <mat-list>  
+             
+            <tr id="testUser"  *ngFor="let user of users">
+          
+              <td class="font-italic"> 
+
+                <div [routerLink]="['/users', user.id, 'profiles', user.profileId]" >
+
+                  <mat-icon> account_circle </mat-icon>
+                  {{user.firstName}} {{user.lastName}} 
+                  <br>
+            
+                </div>
+
+                <div>
+                  <button class = "btn" mat-icon-button ria-label="" (click)="startNewConversation(user.id)"><mat-icon matTooltip="Add New Conversation"> add_circle </mat-icon></button>
+                </div>
+
+                <mat-divider></mat-divider>
+                <br>
+              </td>
+
+            </tr>
+          
+        </mat-list>
+
+      <mat-card-content>
+
+
+      </mat-card-content>
+
+    </mat-card> 
+  </div>

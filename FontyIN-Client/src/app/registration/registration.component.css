@@ -1,0 +1,86 @@
+h1 {
+  text-align: center;
+}
+
+.container-left {
+  float: left;
+  width: 45%;
+}
+.container-right {
+  float: right;
+  width: 45%;
+}
+
+.input-full-width {
+  width: 100%;
+  color: aquamarine;
+  text-align: left;
+  float: left;
+}
+.text-center {
+  border-radius: 2%;
+  background-color: white;
+  padding: 2%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  padding-top: 40px;
+  width: 1000px;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  background-color: rgb(129, 127, 127);
+}
+
+#link {
+  position: absolute;
+
+  padding: 15px;
+}
+#submitButton {
+  background-color: green;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+.underlineHover {
+  text-decoration: underline;
+}
+
+::ng-deep input.mat-input-element {
+  color: #623165;
+}
+
+/* Change label color on focused */
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #623165 !important;
+}
+
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
+  background-color: white !important;
+}
+
+.footerBtns {
+  margin-right: auto;
+  margin-left: auto;
+}
+.container {
+  background-color: #623165;
+}

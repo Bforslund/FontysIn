@@ -1,0 +1,68 @@
+
+<h1> Add Experience </h1>
+<form  class="text-center border-silver" #userExperience="ngForm" (ngSubmit)="onSubmitExperience(userExperience.value)"> 
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="company" ngModel placeholder="Company"> 
+    </mat-form-field>
+    
+    <br>
+
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="title" ngModel placeholder="Title"> 
+    </mat-form-field><br>
+
+    <mat-form-field class="input-full-width">     
+    <mat-select required name="employementType" ngModel>
+        <mat-option value="" disabled>Job Type </mat-option>
+        <mat-option *ngFor = "let l of jobType" [value]="l.name">
+            {{l.name}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>  
+    <br>
+
+    <mat-form-field class="input-full-width"> 
+    <input required matInput type="text" name="locationId" ngModel placeholder="London, United Kingdom"> 
+    </mat-form-field>
+    <br>
+    <mat-form-field class="input-full-width">
+        <mat-select required name="startDateExperience" ngModel>
+            <mat-option value="" disabled>Starting Year </mat-option>
+            <mat-option *ngFor = "let l of years" [value]="l.year">
+                {{l.year}}
+            </mat-option>
+        </mat-select>
+
+    <!-- <input matInput type="text" name="startDateExperience" ngModel placeholder="ex: 2016"> -->
+    </mat-form-field>
+    <br>
+
+    
+    <mat-form-field class="input-full-width">
+
+        <mat-select required name="endDateExperience" ngModel >
+            <mat-option value="" disabled>Ending Year </mat-option>
+            <mat-option *ngFor = "let l of years" [value]="l.year">
+                {{l.year}}
+            </mat-option>
+        </mat-select>
+
+    <!-- <input matInput type="text" name="endDateExperience" ngModel placeholder="ex: 2020">  -->
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="descriptionExperience" ngModel placeholder="Ex: I have had a very good experience"> 
+    </mat-form-field>
+    <br>
+    <button 
+        [disabled] = "!userExperience.valid" 
+        mdbBtn 
+        type="submit"  
+        rounded="true" 
+        id="submitButton"
+        id="submitButton" > submit
+    </button>
+    <button mdbBtn type="button" class="closeButton" (click)="CloseDialog()">Close</button>   
+
+</form>

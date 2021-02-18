@@ -1,0 +1,44 @@
+.filter-card {
+  max-width: 350px;
+  max-height: 1000px;
+  
+  margin-top: 100px;
+  
+}
+
+.mat-radio-button ~ .mat-radio-button {
+margin-left: 16px;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+background-color: white;
+color: palevioletred;
+}
+
+.actions{
+margin-right: 10px;
+}
+
+.userImage{
+  width: 75px;
+  margin: auto 4% auto 1%;
+  height: 55%;
+  border-radius: 50%;
+}
+
+.found-card {
+  height: 70vh;
+  margin-top: 100px;
+}
+
+/* Scroll */
+.scroll-viewport {
+  height: 87%;
+  width: 100%;
+  margin-bottom: 7%;
+  overflow-y: scroll; 
+}
+
+.filter-divider {
+  width: 200%;
+}

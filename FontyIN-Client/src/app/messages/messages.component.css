@@ -1,0 +1,100 @@
+/* Container */
+.container {
+	width: 80%;
+    /* height: 86vh; */
+    background: white;
+}
+
+
+/* Flex container */
+.flex-container {
+	display: flex;
+	width: 100%;
+    height: 85vh;
+}
+
+/* Flex items */
+.item, .selected-message {
+	padding: 3%;
+}
+
+/* item, left */
+.item {
+	width: 40%;
+}
+
+/* item, right */
+.selected-message {
+	width: 60%;
+	height: inherit;
+}
+
+
+/* Scroll */
+.scroll-viewport {
+    height: 87%;
+	width: 100%;
+    margin-bottom: 7%;
+    overflow-y: scroll; 
+}
+
+
+/* Icons container (delete, send a message to someone new */
+#icons {
+	text-align: right;
+}
+
+/* icons */
+mat-icon {
+    font-size: 2em;
+    margin: auto 2%;
+    cursor: pointer;
+}
+
+mat-icon:hover {
+    color: #0075db;
+}
+
+/* tooltip */
+::ng-deep .mat-tooltip {
+    font-size: 0.8em;
+}
+
+
+/* Heading divider/line */
+.heading-divider {
+    margin-bottom: 2rem;
+}
+
+/* List of chats */
+.messages {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 4% 10%;
+}
+
+/* friend's image */
+.conversation-img {
+    width: 84px;
+    margin: auto 4% auto 1%;
+    height: 62%;
+    border-radius: 50%;
+}
+
+.conversation-img, .firend-desc {
+    cursor: pointer;
+}
+
+/* friend's name */
+.friend-name {
+    cursor: pointer;
+    font-weight: 580;
+    color: #252525;
+    margin-bottom: 2px;
+}
+
+.conversation-divider {
+    width: 87%;
+}

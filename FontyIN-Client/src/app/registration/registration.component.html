@@ -1,0 +1,166 @@
+<div class="container">
+    
+   
+    <form 
+     #userData="ngForm" 
+     class="text-center"
+     (ngSubmit)="onSubmitRegistration(userData.value)">  
+     <h1> Register </h1><br>  
+     <mat-divider></mat-divider>
+    <div class="row">
+        <div class="col">
+            <mat-form-field class="input-full-width">
+                <!-- <input required matInput 
+                type="text" 
+                name="firstName" 
+                ngModel 
+                placeholder="First Name">  -->
+
+                <input matInput 
+                    required
+                    type="text" 
+                    [(ngModel)]="userData.firstName" 
+                    name="firstName" 
+                    placeholder="First Name" 
+                 
+                    #firstName="ngModel" 
+                    pattern="[a-zA-Z]+" ng-pattern-restrict />
+                    <div *ngIf="firstName.invalid && (userData.submitted || firstName.touched)" class="alert alert-danger">
+                    <div *ngIf="firstName.errors.required"> Last Name is required. </div>
+                    <div *ngIf="firstName.errors.pattern"> Can only contain Alphabets</div>
+                    </div>
+            </mat-form-field>
+
+            <mat-form-field class="input-full-width">
+            <input required matInput 
+                type="text" 
+                [(ngModel)]="userData.lastName" 
+                name="lastName" 
+                placeholder="Last Name"  
+            
+                #lastName="ngModel" 
+                pattern="[a-zA-Z]+" ng-pattern-restrict />
+                <div *ngIf="lastName.invalid && (userData.submitted || lastName.touched)" class="alert alert-danger">
+                    <div *ngIf="lastName.errors.required"> Last Name is required. </div>
+                    <div *ngIf="lastName.errors.pattern"> Can only contain Alphabets</div>
+                    </div>
+            </mat-form-field>
+
+            <mat-form-field class="input-full-width">     
+                <mat-select required name="employementType" ngModel>
+                    <mat-option value="" disabled>User Type </mat-option>
+                    <mat-option *ngFor = "let l of jobType" [value]="l.name">
+                        {{l.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>  
+        
+
+            <mat-form-field class="input-full-width">     
+            <mat-select required name="fontysLocation" ngModel>
+                <mat-option value="" disabled>Fontys Location </mat-option>
+                <mat-option *ngFor = "let l of fontysLocations" [value]="l.id">
+                    {{l.city}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field> 
+
+            <mat-form-field class="input-full-width">
+                <mat-select required name="department" ngModel>
+                    <mat-option value="" disabled>Department </mat-option>
+                    <mat-option *ngFor = "let l of departments" [value]="l.id">
+                        {{l.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        </div>
+        <div class="col">
+            <mat-form-field class="input-full-width">
+                <input required matInput 
+                    type="text" 
+                    name="userNumber" 
+                    ngModel 
+                    placeholder="PCN"> 
+            </mat-form-field>
+            <mat-form-field class="input-full-width">
+                <!-- <input required matInput 
+                    type="email" 
+                    name="email" 
+                    ngModel 
+                    placeholder="Email">  -->
+                    <input required matInput 
+                        type="text" 
+                        [(ngModel)]="userData.email" 
+                        name="email" 
+                        placeholder="Email"  
+                       
+                        #email="ngModel" 
+
+                        pattern="^\w+([\.-]?\w+)*@([student|staff]+)*\.([fontys]+)*\.([nl]+)+$">
+                        <div class="alert alert-danger" [hidden]="email.valid || email.untouched">
+                            <div  *ngIf="email.errors && email.errors.required">
+                                Email is required
+                            </div>
+                            <div  *ngIf="email.errors && email.errors.pattern">
+                                Email is invalid
+                            </div>
+                        </div>
+
+                        <!-- <div *ngIf="email.invalid && (userData.submitted || email.touched)" class="alert alert-danger">
+
+                            <div *ngIf="email.errors.required"> Last Name is required. </div>
+                            <div *ngIf="email.includes('@')"> Email is not correct. </div>
+                    </div> -->
+                    
+            </mat-form-field>
+            <mat-form-field class="form-group input-full-width"> 
+                <input matInput 
+                    type="password" 
+                    [(ngModel)]="userData.password" 
+                    name="password" 
+                    placeholder="Password" 
+                    class="form-control" 
+                    required
+                    #password="ngModel" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                <div *ngIf="password.invalid && (userData.submitted || password.touched)" class="alert alert-danger">
+                <div *ngIf="password.errors.required"> Password is required. </div>
+                <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+                </div>
+            </mat-form-field>
+        
+            <mat-form-field class="form-group input-full-width">
+                <input matInput 
+                    type="password" 
+                    [(ngModel)]="userData.confirmpassword" 
+                    name="confirmpassword" 
+                    placeholder="Confirm Password" 
+                    class="form-control" 
+                    required 
+                    #confirmpassword="ngModel" 
+                    pattern="{{ password.value }}" />
+                <div *ngIf=" confirmpassword.invalid && (userData.submitted || confirmpassword.touched)" class="alert alert-danger">
+                <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
+                <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+                </div>
+            </mat-form-field> 
+
+
+           
+        </div>
+    </div>
+        <button 
+        mdbBtn 
+        type="submit"  
+        rounded="true" 
+        id="submitButton" 
+        [disabled]="!userData.valid"> submit
+    </button>  
+    <a id="link" href="#">Already a member??</a>
+</form>
+        
+
+</div>
+
+

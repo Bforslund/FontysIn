@@ -1,0 +1,91 @@
+
+
+<div class="container">
+    
+        
+    <div class="post-block">
+    
+
+    <div *ngIf="checked; then thenB else elseB"></div>
+        <ng-template #thenB>
+            <div class="icons">
+            <button class="float-right" mat-icon-button ria-label="" (click)="deletePost(post.id)">
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+              <button mat-icon-button ria-label="" (click)="openUpdateDialog()" class="float-right">
+                <mat-icon>border_color</mat-icon>
+              </button>
+            </div>
+        </ng-template>
+        <ng-template #elseB></ng-template>
+
+       
+        
+          
+    
+    <p style="font-size: 11px;">Post created by <a [routerLink]="['/users', post.userId, 'profiles', 1]" target="_blank" style="text-decoration: underline;">
+       <app-comment-username [userId]="post.userId"></app-comment-username> 
+    </a></p>
+    
+    <h2>{{post.content}}</h2>
+    <div *ngIf="lenImg()"> <img src="{{post.image}}" class="post-img"></div>
+    <br>
+    <p class="p-date">{{post.date.substring(0,10)}} {{post.date.substring(11,16)}}</p>
+    <p></p>
+    
+
+    
+    
+    <div *ngIf="userLikeOnPost; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock><button disabled class="liked_btn"   ></button></ng-template>
+    <ng-template #elseBlock>
+        <button disabled class="liked_btn"   ></button>
+        <button class="like_btn" [hidden]="clicked" (click) = "likePost(); clicked = true;"  [class.test]="wasClicked"></button></ng-template>
+    <input class="like_input" disabled [(ngModel)] = "likeCount">
+    <br>
+    <hr>
+        <div class="comment-block">
+
+            
+
+            <div id="creatPostBlock">
+                
+                <form name="form" [formGroup]="form" (ngSubmit)="form.valid">
+                    <div class="form-group">
+                        
+                        <textarea [(ngModel)] = "commentContent" placeholder="Your awesome comment..." id = "newPostText" formControlName="postText" [ngClass]="{'is-invalid':form.get('postText').touched && form.get('postText').invalid}" required></textarea> <br>
+               
+                        <div class="invalid-feedback">
+                            <div>You need to write something first</div>
+                        </div>
+                    </div>
+                    <button (click) ="createComment(post.id)" class = "postBtn" [disabled]="!form.valid" >Post</button>
+                    
+                </form>
+                <br><br>
+                <br><br>
+                
+                </div>
+
+        <div *ngFor="let comm of comments">
+            <a>
+            <br>
+            <hr>
+            <p style="font-size: 11px;">Comment left by user: <a [routerLink]="['/users', comm.userId, 'profiles', 1]" target="_blank" style="text-decoration: underline;"><app-comment-username [userId]="comm.userId"></app-comment-username> </a> </p>
+            <h2>{{comm.content}}</h2>
+            <p class="p-date">{{post.date.substring(0,10)}} {{post.date.substring(11,16)}}</p>
+            
+            <br>
+            
+            
+            </a>
+          
+          </div>
+        </div>
+    </div>
+    
+  
+  
+</div>
+
+

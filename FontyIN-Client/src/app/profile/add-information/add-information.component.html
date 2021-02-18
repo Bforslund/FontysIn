@@ -1,0 +1,69 @@
+<p>add-information works!</p>
+
+<!-- <button (click) = "PassEvent()"> press</button> -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="buttonAdd">+</button>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Add Experience</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body"> 
+                <form  class="text-center border border-silver" #userExperience="ngForm" (ngSubmit)="onSubmitExperience(userExperience.value)"> 
+                    <label ><h3>Company</h3> </label> <br>
+                        <input type="text" name="company" ngModel placeholder="Company"> <br>
+                   
+                   
+                    <label ><h3>Title</h3></label> <br>
+                    <input type="text" name="title" ngModel placeholder="title"> <br>
+                   
+                    <!-- <label>
+                        Employement Type
+                    </label> <br>
+                    <input list="employementTypes" name="employementType">
+                        <datalist id="employementTypes">
+                            <option value="FullTime">
+                            <option value="PartTime">
+                            <option value="FreeLancer">
+                        </datalist>    -->
+                        
+                       
+                    <label ><h3>Job Type</h3></label>  <br>
+                        <input type="text" name="employementType" ngModel placeholder="title"> <br>
+                    
+                    <br>
+                    <label> <h3>Location Id </h3> </label> <br>
+                    <input type="text" name="locationId" ngModel placeholder="locationId"> <br> 
+
+                    <label> <h3> Start Date </h3></label> <br>
+                    <input type="date" name="startDateExperience" ngModel placeholder="startDateExperience"> <br>
+                    <label ><h3> End Date </h3></label> <br>
+                    <input type="date" name="endDateExperience" ngModel placeholder="endDateExperience"> <br>
+                    <label ><h3> description </h3></label> <br>
+                    <input type="text" name="descriptionExperience" ngModel placeholder="descriptionExperience"> <br> <br>
+                    <button type="submit" id="submitButton" > submit </button>
+                    
+                </form> 
+
+                <app-profile [expToAdd]="experienceToAdd"></app-profile>
+                
+            Modal body..
+            <!-- <button type="button" (click)="CreateExperience()" class="btn btn-dark" id="buttonAdd">+</button> --> -->
+            </div>
+
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
+        </div>
+        </div>
+        
+    </div>

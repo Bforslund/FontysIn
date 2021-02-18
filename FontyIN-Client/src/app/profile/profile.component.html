@@ -1,0 +1,302 @@
+<div class="container">
+    <div class="clearfix">
+      <div class="float-right add-new-profile clearfix">
+     
+        <div *ngIf="!sameUser; else isSameUser">
+          <!-- empty because this is another user -->
+         </div>
+         <ng-template #isSameUser>
+          <div> <button type="button" class="btn add-new-profile-button float-right" routerLink="/export/{{profileId}}">Export</button></div>
+          <button type="button"
+            class="btn add-new-profile-button float-right"
+            (click)="openDialogProfile()">
+              Add New Profile
+          </button>
+         </ng-template>
+     </div>
+    
+    </div>  
+
+    <!-- {{ contact.user.id | json }} -->
+<br>
+<!-- {{ contact.friend.id | json }} -->
+
+
+    <div class="container big-container border clearfix mat-elevation-z3">
+      <div class="float-right">
+        <!-- Connect button -->
+        <ng-container *ngIf="loggedInUserId != userId">
+          <button mat-raised-button
+                  id="contact"
+                  *ngIf="contact?.user != null && contact?.friend != null && contact?.isAccepted == true"
+                  class="float-right">
+            Connected
+          </button>
+          <button mat-raised-button
+                  id="contact"
+                  *ngIf="contact?.user?.id == loggedInUserId && contact?.isAccepted == false"
+                  class="float-right">
+            Request sent
+          </button>
+          <button mat-raised-button
+                  id="contact"
+                  *ngIf="contact?.user == null && contact?.friend == null"
+                  (click)="createContact()"
+                  class="float-right">
+            Connect
+          </button>
+          <button mat-raised-button
+                  id="contact"
+                  *ngIf="contact?.friend?.id == loggedInUserId && contact?.isAccepted == false"
+                  (click)="acceptContact()"
+                  class="float-right">
+            Accept
+          </button>
+        </ng-container>
+        <div class="dropdown">
+          <button class="dropbtn dropdown-toggle switch-profile-button">{{currentProfile}}</button>
+          <div class="dropdown-content">
+            <li *ngFor="let p of profileData">
+              <a class="dropdown-item switch-profile" href="/users/{{p.userId}}/profiles/{{p.id}}"> {{p.language}}</a>
+            </li>
+          </div>
+        </div>
+      </div>
+
+      <div id="pdfTable" #pdfTable> 
+        
+        <div class="name" ng-controller="userImage, userFirstName, userLastName">
+          <div *ngIf="profileUrl?.length> 0; else noProfilePicture">
+             <!-- The purpose of looping through about list is: to make it more specific for this location, and
+          if you remove this loop then it will show you the buttons from one of the first ifs, like Export and Add New Profile -->
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+             <img width="100%" src="{{profileUrl}}"  onerror="this.src='assets/placeholder.png'"class="zoom">
+             <!-- <img width="100%" src="data:image/jpeg;base64, {{profileUrl}}" alt="base64 image" class="zoom"> -->
+            </div>
+            <ng-template #isSameUser>
+              <img width="100%"  src="{{profileUrl}}"  onerror="this.src='assets/placeholder.png'" (click)="openDialogDp()" class="zoom"> 
+              
+            </ng-template>
+           
+          </ul>
+             
+          </div>
+          <ng-template #noProfilePicture>
+           
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+            </div>
+            <ng-template #isSameUser>
+              <button (click)="openDialogDp()">Upload Profile Picture</button>
+            </ng-template>
+           
+          </ul>
+           
+          </ng-template>
+         
+          <h1> {{userFirstName}} {{userLastName}} </h1>
+        </div>
+        <div class="container p-3 my-3 border  block-profile">
+
+          <h1> About </h1>
+          
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            {{p.content}}
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+            </div>
+            <ng-template #isSameUser>
+              <button class="edit-icon icons" mat-icon-button ria-label="" (click)="openDialogAbout(p)">
+                <mat-icon>border_color</mat-icon>
+              </button>
+            </ng-template>
+           
+          </ul>
+
+        </div>
+
+        <div class="container p-3 my-3 border block-profile">
+          
+          <!-- The purpose of looping through about list is: to make it more specific for this location, and
+          if you remove this loop then it will show you the buttons from one of the first ifs, like Export and Add New Profile -->
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+            </div>
+            <ng-template #isSameUser>
+              <mat-icon class="icons float-right add-icon"
+                    aria-hidden="false"
+                    aria-label="Example add icon"
+                    (click)="openDialogExperience()"
+                    id="buttonAdd">add</mat-icon>
+            </ng-template>
+           
+          </ul>
+
+           
+
+          <h1>Experience</h1>
+          <table class="table table-striped">
+            <thead>
+              <span *ngIf="errorMsgExp">
+                <i class="fas fa-exclamation-circle {{allowedToSee.class}}"></i>
+                {{allowedToSee.message}}
+              </span>
+            </thead>
+            <tbody>
+              <tr id="test" *ngFor="let p of data?.experiences">
+
+                <td class="font-italic">
+                  <h3>{{p.title | uppercase}} </h3>
+                  {{p.company}} . {{p.employmentType}} <br>
+                  {{p.startDateExperience}} - {{p.endDateExperience}} <br>
+                  {{p.descriptionExperience}} <br>
+                  {{p.location}}  <br>
+                </td>
+                <div *ngIf="!sameUser; else differentUser">
+                  <!-- empty because this is another user -->
+                 </div>
+                 <ng-template #differentUser>
+                  <td class="icons">
+                    <button mat-icon-button ria-label="" (click)="openDialogUpdateExp(p)">
+                      <mat-icon>border_color</mat-icon>
+                    </button>
+                    <button class="float-right" mat-icon-button ria-label="" (click)="openDialogExp(p)">
+                      <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                  </td>
+                 </ng-template>
+           </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="container p-3 my-3 border block-profile">
+           <!-- The purpose of looping through about list is: to make it more specific for this location, and
+          if you remove this loop then it will show you the buttons from one of the first ifs, like Export and Add New Profile -->
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+            </div>
+            <ng-template #isSameUser>
+              <mat-icon class="icons float-right add-icon"
+                aria-hidden="false"
+                aria-label="Example add icon"
+                (click)="openDialogEducation()"
+                id="buttonAdd">add</mat-icon>
+            </ng-template>
+           
+          </ul>
+         
+
+          <h1>Educations</h1>
+          <table class="table table-striped">
+            <thead>
+              <span *ngIf="errorMsgEdu">
+                <i class="fas fa-exclamation-circle {{allowedToSee.class}}"></i>
+                {{allowedToSee.message}}
+              </span>
+            </thead>
+            <tbody>
+              <tr id="test" *ngFor="let p of data?.educations">
+                <td>
+                  <h3> {{p.school}} </h3>
+                  {{p.degreeEducation}}, {{p.fieldStudy}} <br>
+                  {{p.startYearEducation}} - {{p.endYearEducation}} <br>
+                  {{p.descriptionEducation}}
+                </td>
+                <div *ngIf="!sameUser; else differentUser">
+                  <!-- empty because this is another user -->
+                 </div>
+                 <ng-template #differentUser>
+                  <td class="icons">
+                    <button mat-icon-button ria-label="" (click)="openDialogUpdateEdu(p)">
+                      <mat-icon>border_color</mat-icon>
+                    </button>
+                    <button class="float-right" mat-icon-button ria-label="" (click)="openDialogEdu(p)">
+                      <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                  </td>
+                 </ng-template>
+                 
+              </tr>
+
+            </tbody>
+
+          </table>
+        </div>
+
+        <div class="container p-3 my-3 border block-profile">
+
+         <!-- The purpose of looping through about list is: to make it more specific for this location, and
+          if you remove this loop then it will show you the buttons from one of the first ifs, like Export and Add New Profile -->
+          <ul id="test" class="edit" *ngFor="let p of aboutList">
+            
+            <div *ngIf="!sameUser; else isSameUser">
+             <!-- empty because this is another user -->
+            </div>
+            <ng-template #isSameUser>
+              <mat-icon class="icons float-right add-icon"
+                aria-hidden="false"
+                aria-label="Example add icon"
+                (click)="openSkillDialog()"
+                id="buttonAdd">add</mat-icon>
+            </ng-template>
+           
+          </ul>
+          
+
+          <h1>Skills</h1>
+          <span *ngIf="errorMsgSki">
+            <i class="fas fa-exclamation-circle {{allowedToSee.class}}"></i>
+            {{allowedToSee.message}}
+          </span>
+
+          <table class="table table-striped">
+            <tbody>
+              <tr id="test" *ngFor="let s of data?.skills">
+
+                <td>{{s.name}}</td>
+                <div *ngIf="!sameUser; else isSameUser">
+                  <!-- empty because this is another user -->
+                 </div>
+                 <ng-template #isSameUser>
+                  <td class="icons">
+                    <button class="float-right" mat-icon-button ria-label="" (click)="openDialogSkill(s)">
+                      <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                  </td>
+                 </ng-template>
+
+             
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div> 
+
+
+<!-- <div class="Experience">
+    <h1> Experience </h1>
+    {{p?.company}}
+</div>
+<div class="Education">
+    <h1> Education </h1>
+    {{p?.degree}}
+</div>
+<div class="Skills">
+    <h1> Skills </h1>
+    {{p?.name}}
+</div> -->

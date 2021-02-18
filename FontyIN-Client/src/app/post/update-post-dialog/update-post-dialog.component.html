@@ -1,0 +1,28 @@
+<div class="update-block">
+    <h2>Update your post!</h2><br>
+ <div> 
+<textarea #newContent placeholder="Your awesome post..." id = "newPostText" (keyup)="saveVal($event)">{{post.content}}</textarea> <br><br>
+
+<form [formGroup]="uploadForm" >
+         
+       
+ <div>
+     <input style="display: none;" type="file" name="profile" (change)="onFileSelect($event)" #selectPicture />
+ </div>
+ <div class="buttons">
+     <button class="uploadBtn" type="button" rounded="true" (click)="selectPicture.click()"></button>
+     
+ </div>
+ <br><br>
+ <div style="text-align: center;">
+     <div *ngIf="lenImg()"> <a style="float: right;" (click)="closeImg()">x</a></div>
+ <img src="{{postUrl}}" class="post-img">
+ 
+ </div>
+ 
+ </form>
+ </div>
+<img src="{{post.image}}" class="post-img"><br>
+ <button (click)="updatePost()" class = "postBtn">Update</button><button (click)="CloseDialog()" class = "closeBtn">Close</button>
+ <br>
+</div>

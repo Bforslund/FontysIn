@@ -1,0 +1,12 @@
+<div class="container">
+    <br>
+    <div id="creatPostBlock">
+    <textarea #newContent placeholder="Your awesome post..." id = "newPostText" (keyup)="saveVal($event)">{{post.content}}</textarea> <br>
+    <button (click)="updatePost()" class = "postBtn">update</button>
+    <br>
+    <br>
+    
+    </div>
+    
+  
+  </div>

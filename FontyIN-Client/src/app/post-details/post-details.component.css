@@ -1,0 +1,57 @@
+.post-block {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 4px -3px rgba(0,0,0,0.75);
+}
+
+.p-date {
+    float:right;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+  }
+
+#newPostText{
+    min-width: 700px;
+    max-width: 700px;
+    min-height: 100px;
+    border-radius: 4px;
+}
+#creatPostBlock{
+    width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.postBtn{
+    float: right;
+}
+.postBtn{
+    height: 37px;
+    width: 125px;
+    background-color: #c4c4c4;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+}
+.postBtn:hover{
+    background-color: #d09fd7;
+}
+.deleteBtn{
+    float:right;
+    border:none;
+    background-color: #f5f5f5;
+    font-size: 13px;
+    transition-duration: 0.3s;
+}
+.deleteBtn:hover{
+    color:#663366 ;
+}

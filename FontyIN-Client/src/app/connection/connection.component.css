@@ -1,0 +1,112 @@
+/* CONNECTION */
+.container {
+    background: white;
+}
+
+.mat-list-base .mat-list-item {
+    height: 180px;
+}
+
+/* Heading */
+.heading {
+    padding: 3%;
+    display: inline-block;
+}
+
+/* Heading hr */
+.headingLine {
+    width: 94%;
+    margin: 0 3%;
+}
+
+ .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
+
+.mat-badge-small.mat-badge-after .mat-badge-content {
+    background: #0075db;
+}
+
+
+.connection {
+    width: 80%;
+    margin: 2% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 18vh;
+}
+
+/* Connection items */
+.item {
+    align-self: flex-start;
+}
+
+/* Connection image */
+img.item {
+    width: 120px;
+    border-radius: 50%;
+}
+
+/* Connection name */
+.connectionName {
+    cursor: pointer;
+}
+
+/* Connection Description */
+.item.connectionDesc {
+    margin: auto;
+    width: 60%;
+}
+
+/* Icons */
+mat-icon {
+    font-size: 2em;
+    margin: auto 1%;
+    cursor: pointer;
+}
+
+mat-icon:hover {
+    color: #0075db;
+}
+
+#notification {
+    font-size: 1.8em;
+}
+
+/* Tooltip */
+::ng-deep .mat-tooltip {
+    font-size: 0.8em;
+}
+
+/* Divider hr */
+hr.dividerConnections {
+    width: 70%;
+    color: gray;
+    position: absolute;
+    margin-top: 2rem;
+    right: 15%;
+}
+
+
+/* SEARCH FORM */
+form {
+    padding: 3%;
+    float: right;
+}
+
+
+
+/* small screen */
+@media screen and (max-width: 770px) {
+    img.item {
+        width: 90px;
+        margin: auto 4% auto 0;
+    }  
+}

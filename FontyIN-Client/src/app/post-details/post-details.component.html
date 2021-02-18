@@ -1,0 +1,46 @@
+<div class="container">
+    <br><br>
+    <br><br>
+    <div id="creatPostBlock">
+        <p>user id: {{post.userId}}</p>
+        <h2>{{post.content}}</h2>
+        <p class="p-date">{{post.date}}</p>
+        
+        <br>
+        
+    
+    
+    
+    </div>
+    <hr>
+    <br>
+    <br>
+  
+  </div>
+  <div class="container">
+    <br>
+    <div id="creatPostBlock">
+    <textarea [(ngModel)] = "content" placeholder="Your awesome comment..." id = "newPostText"></textarea> <br>
+    <button (click) ="createComment()" class = "postBtn">Post</button>
+    <br><br>
+    <br><br>
+    
+    </div>
+  </div>
+  <div class="container">
+    <div *ngFor="let comm of comments">
+        <a>
+        <div class="post-block">
+        
+        <p style="font-size: 11px;">Comment left by user: {{comm.userId}}</p>
+        <h2>{{comm.content}}</h2>
+        <p class="p-date">{{comm.date}}</p>
+        
+        <br>
+        
+        </div>
+        </a>
+      
+      </div>
+  </div>
+  

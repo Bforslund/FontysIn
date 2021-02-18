@@ -1,0 +1,46 @@
+<img class="firend-img"
+    [src]="friend?.image"
+    onerror="this.src='assets/placeholder.png'">
+<mat-icon 
+        class="float-right"
+        aria-hidden="false" 
+        aria-label="Example remove_circle_outline icon" 
+        matTooltip="Delete chat" 
+        [matTooltipPosition]="position.value"
+        (click)="openDialogDeleteConversation(conversation)">
+        remove_circle_outline
+</mat-icon>
+
+<h3 class="friend-name"> {{ friend?.firstName }} {{ friend?.lastName }}</h3>
+
+<hr>
+
+<div class="scroll-viewport" #scrollable (scroll)="onScroll()">  
+    <!-- Loop over conversation -->
+    <div class="chat-container">
+        <div *ngFor="let message of conversation?.messages">
+            <div class="message">
+                <div class="sender">{{message?.sender.firstName}} {{message?.sender.lastName}}
+                    <span class="time" 
+                        [matTooltip]="getTooltipDate(getLocalDate(message.dateTime) | slice:0:19)"
+						[matTooltipPosition]="position.value">
+                        {{ getLocalDate(message.dateTime) | slice:0:19 | dateAgo }}
+                    </span>
+                </div>
+                <div class="message-content">
+                        {{message?.content}}
+                </div>
+            </div>
+            <hr class="conversation-divider">
+        </div>
+
+    </div>
+</div>
+
+<form class="example-form" #f="ngForm" (ngSubmit)="submit(f)">
+    <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Send a message</mat-label>
+        <textarea matInput ngModel name="message" #message="ngModel"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="accent" id="send-message" [disabled]="!message.value?.trim()">Send</button>
+</form>

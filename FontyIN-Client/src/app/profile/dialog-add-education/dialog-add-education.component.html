@@ -1,0 +1,50 @@
+<h1>Add Education</h1>
+<form  class="text-center border-silver" #userEducation="ngForm" (ngSubmit)="onSubmitEducation(userEducation.value)">                               
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="school" ngModel placeholder="School/University" > 
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+        <mat-select required name="startYearEducation" ngModel> 
+            <mat-option value="" disabled>Starting Year </mat-option>
+            <mat-option *ngFor = "let l of years" [value]="l.year">
+                {{l.year}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width">
+        <mat-select required name="endYearEducation" ngModel>
+            <mat-option value="" disabled>Ending Year </mat-option>
+            <mat-option *ngFor = "let l of years" [value]="l.year">
+                {{l.year}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    
+
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="degreeEducation" ngModel placeholder="Degree">
+    </mat-form-field>
+    <br> 
+
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="fieldStudy" ngModel  placeholder="Field"> 
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="input-full-width">
+    <input required matInput type="text" name="descriptionEducation" ngModel placeholder="ex: I have had a very good experience"> 
+    </mat-form-field>
+    <br>
+    <button 
+        [disabled] = "!userEducation.valid"
+        mdbBtn 
+        type="submit"  
+        rounded="true" 
+        id="submitButton"
+        id="submitButton" > submit
+    </button>
+    <button mdbBtn type="button" class="closeButton" (click)="CloseDialog()">Close</button>   
+</form>

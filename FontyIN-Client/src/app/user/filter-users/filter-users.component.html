@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-sm">
+      <mat-card class="filter-card">
+
+        <div>
+          <button class = "float-right" mat-icon-button ria-label="" (click)="ClearFilters()"><mat-icon matTooltip="Clear filters"> cleaning_services </mat-icon></button>
+        </div>
+
+
+        <mat-card-header>
+          <mat-card-title>Filter Users:</mat-card-title>
+        </mat-card-header>
+    
+        <mat-card-content>
+     
+          <p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="TypeSelection" (ngModelChange)="getUsersByType()"> 
+              <br>
+              <label>User Type</label> 
+              <br>
+              <mat-radio-button type="radio" name="filter" value="Student">Student</mat-radio-button>
+              <mat-radio-button type="radio" name="filter" value="Teacher">Teacher</mat-radio-button>
+              <mat-radio-button type="radio" name="filter" value="FontysStaff">FontysStaff</mat-radio-button>
+              <br>
+            </mat-radio-group>
+          </p>
+    
+          <br>
+          <h4>Start Study Year *Student</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <mat-select [disabled]="!StudentDisabled" ng-model [(ngModel)]="syearSelection" (ngModelChange)="foundDataByYear()">
+              <mat-option *ngFor="let y of years" name="filter" [value]="y.viewValue" (click)="getUsersByStudyYear()">
+                {{y.viewValue}}
+                
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+          <h4>Start Work Year  *Fontys staff</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <mat-select [disabled]="!EmployeeDisabled" ng-model [(ngModel)]="wyearSelection" (ngModelChange)="foundDataByStartWorkYear()">
+              <mat-option *ngFor="let y of years" name="filter" [value]="y.viewValue" (click)="getUsersByWorkYear()">
+                {{y.viewValue}} 
+                
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <br>
+          <h4>Location</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <mat-select ng-model [(ngModel)]="locationSelection" (ngModelChange)="foundDataByLocation()">
+              <mat-option *ngFor="let l of locations" name="filter" [value]="l.value" (click)="getUsersByLocation()">
+                {{l.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+          <br>
+          <h4>Department</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>Department</mat-label>
+            <mat-select ng-model [(ngModel)]="departmentSelection" (ngModelChange)="foundDataByDepartment()">
+              <mat-option *ngFor="let d of departments" [value]="d.value"  name="filter" (click)="getUsersByDepartment()">
+                {{d.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+        </mat-card-content>
+
+        <div class="actions">
+
+          <button type="button" class="btn btn-primary" (click)="combinedFilter()">Show Results</button>
+
+        </div>
+        
+      </mat-card>
+
+    </div>
+
+    <div class="col-sm">
+      <mat-card class="found-card">
+
+        <form class="example-form float-right">
+          <mat-form-field class="example-full-width">
+            <mat-label>Search</mat-label>
+            <input type="text" matInput placeholder="Search"
+            id="search-text" 
+            aria-describedby="search-text" 
+            name="searchText"
+            [(ngModel)]="searchText" 
+            autofocus>
+          </mat-form-field>
+
+          <button class="float-right" mat-icon-button ria-label="" (click)="getUsersByFirstNameChars()">
+            <mat-icon>search</mat-icon>
+          </button>
+
+        </form>
+
+        <mat-card-header>
+
+          <mat-card-title>Users:</mat-card-title>
+          
+        </mat-card-header>
+
+
+        <div class="scroll-viewport" #scrollable (scroll)="onScroll()">  
+          <div id="testUser"  *ngFor="let user of users">
+              
+            <td class="font-italic"> 
+
+              <div [routerLink]="['/users', user.id, 'profiles', user.profileId]" >
+
+                <div> 
+                  <img class="userImage" src="{{user.image}}" onerror="this.src='assets/placeholder.png'"> {{user.firstName}} {{user.lastName}}<br>
+                </div>              
+              </div>
+
+              <br>
+
+                Fontys University of Applied Sciences
+              
+              <br>
+              <br>
+              <hr class="filter-divider">
+              <br>
+            </td>
+
+          </div>
+        </div>
+
+        <mat-card-content>
+
+
+        </mat-card-content>
+
+      </mat-card> 
+    </div>
+
+  </div>
+</div>
+
+
+

@@ -1,0 +1,56 @@
+<div class="container border my-5" 
+	appMaterialElevation 
+	[defaultElevation]="defaultElevation" 
+	[raisedElevation]="raisedElevation"
+	[ngClass]="{ 'desktop-view': width >= 768, 'mobile-view': width < 768 
+}"
+>
+	<div class="flex-container">
+		<!-- Messages list -->
+		<div class="item">
+			<div>
+				<div id="icons">
+					<mat-icon 
+						aria-hidden="false" 
+						aria-label="Example chat icon" 
+						matTooltip="Chat with someone new" 
+						[matTooltipPosition]="position.value"
+						(click)="openDialogStartConversation()">
+						chat
+					</mat-icon>
+				</div>
+			</div>
+			<hr class="heading-divider">
+            <div class="scroll-viewport" #scrollable (scroll)="onScroll()">  
+                <div *ngFor="let conversation of conversations; let i = index;">
+                    <div class="messages" (click)="onSelected(conversation, i)" [class.active]="selectedIndex == i">
+                        <!-- Loop -->
+                        <img class="conversation-img" 
+						[src]="userId != conversation.firstUser.id ? conversation.firstUser.image : conversation.secondUser.image"
+						onerror="this.src='assets/placeholder.png'">
+
+                        <div class="firend-desc message-item">
+                            <h3 class="friend-name">
+                                {{ userId != conversation.firstUser.id ? conversation.firstUser.firstName + ' ' + conversation.firstUser.lastName :   conversation.secondUser.firstName + ' ' + conversation.secondUser.lastName }}
+
+                            </h3>
+                            <h4>Student at Fontys of Applied Sciences</h4>
+
+                        </div>
+
+                    </div>
+                    <hr class="conversation-divider">
+                </div>
+            </div>
+
+		</div>
+
+  		<mat-divider [vertical]="true"></mat-divider>
+
+		<!-- Selected message -->
+		<div class="selected-message">
+            <!-- Selected message -->
+            <router-outlet></router-outlet>
+		</div>
+	</div>	
+</div>

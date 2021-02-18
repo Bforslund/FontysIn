@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h1>Profile Picture</h1>
+    <img width="100%" src="{{profileUrl}}">    
+
+      <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">      
+        <div>
+          <input style="display: none;"  
+            type="file"
+            name="profile" 
+            (change)="onFileSelect($event)"
+            class="select-profile-picture" 
+            #selectPicture/>
+          </div> 
+            <div class="buttons">
+              <button 
+                mdbBtn 
+                type="button"  
+                rounded="true" 
+                (click) = "selectPicture.click()">  Change Picture
+            </button>
+              <button 
+                mdbBtn 
+                type="submit"  
+                rounded="true" 
+                id="submitButton"> submit
+            </button>
+            </div>      
+        
+       
+      </form>
+  </div>

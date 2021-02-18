@@ -1,0 +1,19 @@
+.filter-card {
+    max-width: 350px;
+    max-height: 1000px;
+    
+    margin-top: 100px;
+    
+}
+  
+.found-card {
+  max-width: 600px;
+  max-height: 1000px;
+  margin-top: 10px;
+}
+
+.btn{
+  margin-left: 200px;
+}
+  
+  
